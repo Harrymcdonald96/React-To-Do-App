@@ -29,3 +29,15 @@
 - Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine, used to run the server.
 
 - CSS3: For styling the application.
+
+# ScreenShots
+
+![Screenshot of the To-Do App](screenshots/Screenshot 2024-08-12 at 5.12.19 pm.png)
+
+![Screenshot of the To-Do App](screenshots/Screenshot 2024-08-12 at 8.57.09 pm.png)
+
+![Screenshot of the To-Do App](screenshots/Screenshot 2024-08-12 at 5.17.42 pm.png)
+
+![Screenshot of the To-Do App](screenshots/Screenshot 2024-08-12 at 8.59.14 pm.png)
+
+![Screenshot of the To-Do App](screenshots/Screenshot 2024-08-12 at 9.00.43 pm.png)
