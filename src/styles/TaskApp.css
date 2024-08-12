@@ -1,0 +1,90 @@
+/* TaskApp.css - updated styles for responsive layout */
+body, #app {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-form-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-form {
+  width: 100%;
+  display: grid; /* Using grid for better alignment */
+  grid-template-columns: auto 120px; /* Adjusted for input and button to sit side by side */
+  gap: 10px; /* Spacing between input and button */
+}
+
+input[type="text"], button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  width: 60%; /* Ensures input fills available space minus button width */
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+button {
+  width: 100px; /* Fixed width for the button */
+  background-color: #6200ea;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px; /* Additional spacing from the form */
+  
+}
+
+.task-item {
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-text {
+  flex-grow: 1;
+}
+
+.task-actions button {
+  background: none;
+  color: #bbb;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.task-actions button:hover {
+  color: #fff;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #666;
+}
