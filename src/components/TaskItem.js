@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '/Users/imac/todo-app/src/styles/TaskItem.css';
+import '../styles/TaskItem.css';
+
 
 function TaskItem({ task, onDelete, onToggle, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);  // State to manage editing mode

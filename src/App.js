@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TaskList from '/Users/imac/todo-app/src/components/TaskList.js';
-import '/Users/imac/todo-app/src/styles/TaskApp.css';
+import TaskList from './components/TaskList';
+import './styles/TaskApp.css';
 
 function TaskApp() {
   const [tasks, setTasks] = useState([]);
