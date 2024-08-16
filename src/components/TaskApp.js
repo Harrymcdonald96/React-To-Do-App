@@ -8,7 +8,7 @@ function TaskApp() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('/api/tasks')
+    fetch('https://react-to-do-app-eight-plum.vercel.app/api/tasks')
       .then(response => response.json())
       .then(data => setTasks(data))
       .catch(error => console.error('Failed to load tasks:', error));
@@ -17,7 +17,7 @@ function TaskApp() {
   const addTask = (event) => {
     event.preventDefault();
     if (newTask.trim()) {
-      fetch('/api/tasks', {
+      fetch('https://react-to-do-app-eight-plum.vercel.app/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: newTask, completed: false }),
@@ -32,7 +32,7 @@ function TaskApp() {
   };
 
   const deleteTask = (id) => {
-    fetch(`/api/tasks/${id}`, { method: 'DELETE' })
+    fetch(`https://react-to-do-app-eight-plum.vercel.app/api/tasks/${id}`, { method: 'DELETE' })
       .then(() => setTasks(tasks.filter(task => task._id !== id)))
       .catch(error => console.error('Failed to delete task:', error));
   };
@@ -40,7 +40,7 @@ function TaskApp() {
   const toggleCompletion = (id) => {
     const task = tasks.find(task => task._id === id);
     if (task) {
-      fetch(`/api/tasks/${id}`, {
+      fetch(`https://react-to-do-app-eight-plum.vercel.app/api/tasks/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !task.completed }),

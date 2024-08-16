@@ -5,17 +5,17 @@ import './styles/TaskApp.css';
 function TaskApp() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [filter, setFilter] = useState('all'); // State to manage filter type
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('/api/tasks')
+    fetch('https://react-to-do-app-eight-plum.vercel.app/api/tasks')
       .then(response => response.json())
       .then(data => setTasks(data));
   }, []);
 
   const addTask = () => {
     if (newTask.trim()) {
-      fetch('/api/tasks', {
+      fetch('https://react-to-do-app-eight-plum.vercel.app/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: newTask, completed: false }),
@@ -27,13 +27,13 @@ function TaskApp() {
   };
 
   const deleteTask = (id) => {
-    fetch(`/api/tasks/${id}`, { method: 'DELETE' })
+    fetch(`https://react-to-do-app-eight-plum.vercel.app/api/tasks/${id}`, { method: 'DELETE' })
       .then(() => setTasks(tasks.filter(task => task._id !== id)));
   };
 
   const toggleCompletion = (id) => {
     const task = tasks.find(task => task._id === id);
-    fetch(`/api/tasks/${id}`, {
+    fetch(`https://react-to-do-app-eight-plum.vercel.app/api/tasks/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !task.completed }),
@@ -45,7 +45,7 @@ function TaskApp() {
   };
 
   const updateTask = (id, newText) => {
-    fetch(`/api/tasks/${id}`, {
+    fetch(`https://react-to-do-app-eight-plum.vercel.app/api/tasks/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: newText, completed: false }),
