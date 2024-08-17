@@ -8,14 +8,14 @@ function TaskApp() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('https://react-to-do-app-lake.vercel.app/api/tasks')
+    fetch(`${process.env.REACT_APP_API_URL}/api/tasks`)
       .then(response => response.json())
       .then(data => setTasks(data));
   }, []);
 
   const addTask = () => {
     if (newTask.trim()) {
-      fetch('https://react-to-do-app-lake.vercel.app/api/tasks', {
+      fetch(`${process.env.REACT_APP_API_URL}/api/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: newTask, completed: false }),
@@ -27,13 +27,13 @@ function TaskApp() {
   };
 
   const deleteTask = (id) => {
-    fetch(`https://react-to-do-app-lake.vercel.app/api/tasks/${id}`, { method: 'DELETE' })
+    fetch(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`, { method: 'DELETE' })
       .then(() => setTasks(tasks.filter(task => task._id !== id)));
   };
 
   const toggleCompletion = (id) => {
     const task = tasks.find(task => task._id === id);
-    fetch(`https://react-to-do-app-lake.vercel.app/api/tasks/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !task.completed }),
@@ -45,7 +45,7 @@ function TaskApp() {
   };
 
   const updateTask = (id, newText) => {
-    fetch(`https://react-to-do-app-lake.vercel.app/api/tasks/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: newText, completed: false }),
