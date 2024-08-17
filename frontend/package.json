@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/Harrymcdonald96/React-To-Do-App.git",
   "proxy": "http://localhost:5000",
   "name": "todo-app",
   "version": "0.1.0",
