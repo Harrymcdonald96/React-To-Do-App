@@ -12,7 +12,7 @@ app.use(express.json()); // For parsing application/json
 
 // MongoDB URI
 const uri = process.env.MONGODB_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(uri);
 
 const connection = mongoose.connection;
 connection.once('open', () => {
