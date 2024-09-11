@@ -1,22 +1,23 @@
 {
-  "name": "backend",
+  "name": "todo-app-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Backend server for todo app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "vercel-build": "echo 'Ready to deploy backend'"
+    "dev": "nodemon server.js",
+    "build": "cd frontend && npm run build",
+    "prod": "NODE_ENV=production nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.8.0",
-    "mongoose": "^8.5.2"
-  }
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "author": "Your Name",
+  "license": "ISC"
 }

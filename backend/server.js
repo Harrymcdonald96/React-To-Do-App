@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path'); // Added for serving static files
 const Task = require('./models/task'); // Ensure this is at the top, after packages
 
 const app = express();
@@ -60,6 +61,14 @@ app.delete('/api/tasks/:id', async (req, res) => {
   } catch (err) {
     res.status(400).json('Error: ' + err);
   }
+});
+
+// Serve static files from the React frontend
+app.use(express.static(path.join(__dirname, 'build')));
+
+// For any route that doesn't match an API route, serve the index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(port, () => {
